@@ -122,7 +122,7 @@ export function Hero() {
           <div className="relative">
             <div className="absolute -inset-3 rounded-3xl bg-primary/15 blur-2xl" />
             <Image
-              src={profile.photo}
+              src={withBasePath(profile.photo)}
               alt={profile.name}
               width={420}
               height={420}
