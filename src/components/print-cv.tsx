@@ -12,6 +12,7 @@ import {
   projects,
   skillGroups,
 } from "@/data/cv";
+import { withBasePath } from "@/lib/utils";
 
 function PrintLink({
   href,
@@ -38,7 +39,7 @@ export function PrintCv() {
           <Button
             nativeButton={false}
             render={
-              <a href="/Ahmed-Mahrous-Flutter-Developer.pdf" download />
+              <a href={withBasePath("/Ahmed-Mahrous-Flutter-Developer.pdf")} download />
             }
           >
             <Download data-icon="inline-start" />

@@ -1,21 +1,18 @@
 import { Experience } from "@/components/experience";
 import { Hero } from "@/components/hero";
-import { parseProjectFilter, Projects } from "@/components/projects";
+import { Projects } from "@/components/projects";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Skills } from "@/components/skills";
 
-export default async function Home({ searchParams }: PageProps<"/">) {
-  const params = await searchParams;
-  const filter = parseProjectFilter(params.filter);
-
+export default function Home() {
   return (
     <>
       <SiteHeader />
       <main className="flex-1">
         <Hero />
         <Experience />
-        <Projects filter={filter} />
+        <Projects />
         <Skills />
       </main>
       <SiteFooter />

@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -90,7 +94,21 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-export function Projects({ filter }: { filter: ProjectFilter }) {
+export function Projects() {
+  return (
+    <Suspense fallback={<ProjectsList filter="all" />}>
+      <ProjectsFromQuery />
+    </Suspense>
+  );
+}
+
+function ProjectsFromQuery() {
+  const searchParams = useSearchParams();
+  const filter = parseProjectFilter(searchParams.get("filter"));
+  return <ProjectsList filter={filter} />;
+}
+
+function ProjectsList({ filter }: { filter: ProjectFilter }) {
   const visible =
     filter === "all"
       ? projects

@@ -4,6 +4,7 @@ import { ArrowUpRight, Download, Mail, MapPin, Phone, Printer } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { profile } from "@/data/cv";
+import { withBasePath } from "@/lib/utils";
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -59,7 +60,7 @@ export function Hero() {
               variant="outline"
               nativeButton={false}
               render={
-                <a href="/Ahmed-Mahrous-Flutter-Developer.pdf" download />
+                <a href={withBasePath("/Ahmed-Mahrous-Flutter-Developer.pdf")} download />
               }
             >
               <Download data-icon="inline-start" />

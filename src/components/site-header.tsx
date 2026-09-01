@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, withBasePath } from "@/lib/utils";
 
 const links = [
   { href: "/", label: "Portfolio" },
@@ -48,7 +48,7 @@ export function SiteHeader() {
             className="ml-1"
             nativeButton={false}
             render={
-              <a href="/Ahmed-Mahrous-Flutter-Developer.pdf" download />
+              <a href={withBasePath("/Ahmed-Mahrous-Flutter-Developer.pdf")} download />
             }
           >
             <Download data-icon="inline-start" />
